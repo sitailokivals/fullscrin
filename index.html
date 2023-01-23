@@ -6,29 +6,15 @@
 </head>
 <body>
 
-<h1>Полноэкранный режим</h1>
 
 
-
-<button onclick="openFullscreen();">Открыть полноэкранный режим</button>
-
-<script>
-var elem = document.documentElement;
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
-  }
-}
-
-
-</script>
-
-
+<button id="goFS">Перейти в полноэкранный режим<button> 
+  <script>
+     var goFS = document.getElementById("goFS");
+     goFS.addEventListener("click", function() {
+        document.body.requestFullScreen();
+     }, false);
+  </script>
 </body>
 </html>
+
