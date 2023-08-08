@@ -6,27 +6,29 @@
 </head>
 <body>
 
-<button id="sum" >Окно в полный   экран</button>
-<button id="sub" >Стандартный экран</button>
+<h1>Полноэкранный режим</h1>
+
+
+
+<button onclick="openFullscreen();">Открыть полноэкранный режим</button>
+
 <script>
-	document.querySelector('#sum').addEventListener('click', function(){
-        if(document.documentElement.webkitRequestFullscreen) {
-                document.documentElement.webkitRequestFullscreen();
-        }
-        else{
-            document.documentElement.mozRequestFullScreen();
-        }
-});
-document.querySelector('#sub').addEventListener('click', function(){
-    if(document.documentElement.webkitRequestFullscreen) {
-        document.webkitCancelFullScreen()
-   }
-    else{
-        document.mozCancelFullScreen();
-    }
-});
-    </script>
-<!-- https://webfanat.com/article_id/?id=77 -->
+var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+
+</script>
+
+
 </body>
 </html>
-
